@@ -79,14 +79,14 @@ app.use(express.static(path.join(__dirname, "public")))
 const v3prefix = "v3"
 
 // Inspect the header for a JWT token.
-app.use(`/${v3prefix}/`, jwtAuth.getTokenFromHeaders)
+//app.use(`/${v3prefix}/`, jwtAuth.getTokenFromHeaders)
 
 // Instantiate the authorization middleware, used to implement pro-tier rate limiting.
-const auth = new AuthMW()
-app.use(`/${v3prefix}/`, auth.mw())
+//const auth = new AuthMW()
+//app.use(`/${v3prefix}/`, auth.mw())
 
 // Rate limit on all v3 routes
-app.use(`/${v3prefix}/`, routeRateLimit) // Establish and enforce rate limits.
+//app.use(`/${v3prefix}/`, routeRateLimit) // Establish and enforce rate limits.
 app.use(`/${v3prefix}/` + `health-check`, healthCheckV3)
 app.use(`/${v3prefix}/` + `blockchain`, blockchainV3.router)
 app.use(`/${v3prefix}/` + `control`, controlV3.router)
